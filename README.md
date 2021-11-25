@@ -1,13 +1,9 @@
 # NLP_Classification
 nlp中基于TextCNN，TextRNN，FastText，TextRCNN，BiLSTM_Attention, DPCNN, Transformer等的分类任务
+模型介绍：
+# 1. TextCNN
+## 1.1 模型介绍
 
-代码结构：
-NLP_Classification <br/>
- -codes <br/>
-    -
- -data <br/>
-  -train 训练数据 <br/>
-  -dev   验证数据 <br/>
-  -test  测试数据 <br/>
- -outputs  <br/>
- -readme.md <br/>
+## 1.2 参考文献
+
+
