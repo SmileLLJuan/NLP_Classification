@@ -24,13 +24,13 @@ nlp中基于TextCNN，TextRNN，FastText，TextRCNN，BiLSTM_Attention, DPCNN, T
 ![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRNN.png)
 一般取前向/反向LSTM在最后一个时间步长上隐藏状态，然后进行拼接，在经过一个softmax层(输出层使用softmax激活函数)进行一个多分类；或者取前向/反向LSTM在每一个时间步长上的隐藏状态，对每一个时间步长上的两个隐藏状态进行拼接，然后对所有时间步长上拼接后的隐藏状态取均值，再经过一个softmax层(输出层使用softmax激活函数)进行一个多分类(2分类的话使用sigmoid激活函数)。<br/>
 RNN会出现梯度消失和梯度爆炸的情况，因此难以学习到序列的长距离相关性，因此LSTM专门被提出用来解决长期依赖问题。LSTM的单元计算如下：<br/>
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= i_t=\delta(W_ix_t+U_ih_{t_1}+V_ic_{t-1})" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= f_t=\delta(W_fx_t+U_fh_{t_1}+V_fc_{t-1})" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= o_t=\delta(W_ox_t+U_oh_{t_1}+V_oc_{t-1})" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= f_t=\delta(W_fx_t+U_fh_{t_1}+V_fc_{t-1})" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= \tilde{c_t}=tanh(W_cx_t+U_ch_{t-1})" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= c_t=f_{t}^{i}\bigodot c_{t-1}+i_t\bigodot\tilde{c_t}" style="border:none;">
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= h_t=o_t\bigodot tanh(c_t)" style="border:none;">
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= i_t=\delta(W_ix_t+U_ih_{t_1}+V_ic_{t-1})" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= f_t=\delta(W_fx_t+U_fh_{t_1}+V_fc_{t-1})" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= o_t=\delta(W_ox_t+U_oh_{t_1}+V_oc_{t-1})" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= f_t=\delta(W_fx_t+U_fh_{t_1}+V_fc_{t-1})" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= \tilde{c_t}=tanh(W_cx_t+U_ch_{t-1})" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= c_t=f_{t}^{i}\bigodot c_{t-1}+i_t\bigodot\tilde{c_t}" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= h_t=o_t\bigodot tanh(c_t)" style="border:none;"><br/>
 
 ## 2.2 参考文献
 [1][Recurrent Neural Network for Text Classification with Multi-Task Learning](https://arxiv.org/pdf/1605.05101.pdf)<br/>
