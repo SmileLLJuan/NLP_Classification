@@ -35,5 +35,13 @@ RNN会出现梯度消失和梯度爆炸的情况，因此难以学习到序列�
 ## 2.2 参考文献
 [1][Recurrent Neural Network for Text Classification with Multi-Task Learning](https://arxiv.org/pdf/1605.05101.pdf)<br/>
 
+# 3.TextRCNN
+## 3.1 模型结构
+![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRCNN.png)
+RCNN：一般的 CNN 网络，都是卷积层 + 池化层。这里是将卷积层换成了双向 RNN，所以结果是，两向 RNN + 池化层。
+## 3.2 参考文献
+[1][Recurrent Convolutional Neural Networks for Text Classification](http://www.nlpr.ia.ac.cn/cip/~liukang/liukangPageFile/Recurrent%20Convol utional%20Neural%20Networks%20for%20Text%20Classification.pdf)<br/>
+
+
 
 
