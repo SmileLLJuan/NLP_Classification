@@ -12,6 +12,7 @@ nlp中基于TextCNN，TextRNN，FastText，TextRCNN，BiLSTM_Attention, DPCNN, T
 <u><img src="http://chart.googleapis.com/chart?cht=tx&chl=$$c_i=f(W\cdot X_{i:i+h-1}+b)$$" style="border:none;"></u>
 <img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;">
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;">
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= c_i=f(W\cdot X_{i:i+h-1}+b)" style="border:none;">
 
 池化的作用可以显著减少参数量，压缩数据和参数的数量，减小过拟合，同时提高模型的容错性。
 
