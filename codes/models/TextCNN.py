@@ -47,7 +47,8 @@ class Model(nn.Module):
 if __name__ == '__main__':
     from codes.utils.data_loader import build_dataset, build_iterator
     from codes.train_eval import train
-    config = Config(dataset="THUCNews",from_="from_pretrained_embedding",type_="char",num_epochs=20)
+    # config = Config(dataset="THUCNews",from_="from_pretrained_embedding",type_="char",num_epochs=20)
+    config = Config(dataset="THUCNews",from_="from_train_data",type_="char",num_epochs=20)
     model = Model(config)
     vocab, train_data, dev_data, test_data = build_dataset(config, type_='word')
     train_iter = build_iterator(train_data, config)

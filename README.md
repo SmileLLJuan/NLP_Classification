@@ -41,9 +41,20 @@ RNN会出现梯度消失和梯度爆炸的情况，因此难以学习到序列�
 ## 3.1 模型结构
 ![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRCNN.png)</br>
 RCNN：一般的 CNN 网络，都是卷积层 + 池化层。这里是将卷积层换成了双向 RNN，所以结果是，两向 RNN + 池化层。
+【大致思路】
+（1）文本中的词语经过双向RNN得到每个词语的前向和后向上下文表示c_l,c_r;
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= c_l(w_i)=f(W^{(l)}c_l(w_{i-1})+W^{sl}e(w_{i-1}))" style="border:none;"><br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= c_r(w_i)=f(W^{(r)}c_r(w_{i+1})+W^{sr}e(w_{i+1}))" style="border:none;"><br/>
+<br/>
+（2）词的表示x_i变成词向量和前向后向上下文向量连接起来的形式<br/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= x_i=[c_l(w_i);e(w_i);c_r(w_i)]" style="border:none;"><br/>
+<br/>
+（3）x向量序列再接跟TextCNN相同卷积层，pooling层即可，唯一不同的是卷积层 filter_size = 1就可以了，不再需要更大 filter_size 获得更大视野<br/>
 ## 3.2 参考文献
 [1][Recurrent Convolutional Neural Networks for Text Classification](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9745/9552)<br/>
 
-
+#4.TextRNN+Attention
+![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRNN+Attention.png)</br>
+注意力（Attention）机制是自然语言处理领域一个常用的建模长时间记忆机制，能够很直观的给出每个词对结果的贡献，基本成了Seq2Seq模型的标配了。实际上文本分类从某种意义上也可以理解为一种特殊的Seq2Seq，所以考虑把Attention机制引入近来。<br/>
 ### 未完待续。。。
 
