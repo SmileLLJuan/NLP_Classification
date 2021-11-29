@@ -12,8 +12,8 @@ from codes.utils.Model_Config import Model_Config
 class Config(Model_Config):
 
     """配置参数"""
-    def __init__(self, dataset, embedding="random",**kwargs):
-        super(Config, self).__init__(dataset, embedding,**kwargs)
+    def __init__(self, dataset, from_, type_, **kwargs):
+        super(Config, self).__init__(dataset, from_, type_, **kwargs)
         self.filter_sizes = (2, 3, 4)                                   # 卷积核尺寸
         self.num_filters = 256                                          # 卷积核数量(channels数)
 
@@ -47,10 +47,9 @@ class Model(nn.Module):
 if __name__ == '__main__':
     from codes.utils.data_loader import build_dataset, build_iterator
     from codes.train_eval import train
-    config = Config(dataset="THUCNews", embedding="embedding_SougouNews.npz", num_epochs=20)
+    config = Config(dataset="THUCNews",from_="from_pretrained_embedding",type_="char",num_epochs=20)
     model = Model(config)
-    print(model)
-    vocab, train_data, dev_data, test_data = build_dataset(config, ues_word=False)
+    vocab, train_data, dev_data, test_data = build_dataset(config, type_='word')
     train_iter = build_iterator(train_data, config)
     dev_iter = build_iterator(dev_data, config)
     test_iter = build_iterator(test_data, config)

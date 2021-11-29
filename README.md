@@ -4,6 +4,7 @@ nlp中基于TextCNN，TextRNN，FastText，TextRCNN，BiLSTM_Attention, DPCNN, T
 # 1. TextCNN
 ## 1.1 模型结构
 ![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextCNN.png)
+</br>
 模型主要包括五层，第一层是embedding layer,第二层是convolutional layer,第三层是max-pooling layer,第四层是fully connected layer，最后一层是softmax layer.<br/>
 其中卷积层的目的是为了特区特征，采用不同的卷积核可以提取不同的文本特征，本文采用的卷积核大小为[2,3,4]
 ### 卷积
@@ -22,6 +23,7 @@ nlp中基于TextCNN，TextRNN，FastText，TextRCNN，BiLSTM_Attention, DPCNN, T
 # 2. TextRNN
 ## 2.1 模型结构
 ![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRNN.png)
+</br>
 一般取前向/反向LSTM在最后一个时间步长上隐藏状态，然后进行拼接，在经过一个softmax层(输出层使用softmax激活函数)进行一个多分类；或者取前向/反向LSTM在每一个时间步长上的隐藏状态，对每一个时间步长上的两个隐藏状态进行拼接，然后对所有时间步长上拼接后的隐藏状态取均值，再经过一个softmax层(输出层使用softmax激活函数)进行一个多分类(2分类的话使用sigmoid激活函数)。<br/>
 RNN会出现梯度消失和梯度爆炸的情况，因此难以学习到序列的长距离相关性，因此LSTM专门被提出用来解决长期依赖问题。LSTM的单元计算如下：<br/>
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= i_t=\delta(W_ix_t+U_ih_{t_1}+V_ic_{t-1})" style="border:none;"><br/>
@@ -37,7 +39,7 @@ RNN会出现梯度消失和梯度爆炸的情况，因此难以学习到序列�
 
 # 3.TextRCNN
 ## 3.1 模型结构
-![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRCNN.png)
+![Image text](https://github.com/SmileLLJuan/NLP_Classification/blob/main/images/TextRCNN.png)</br>
 RCNN：一般的 CNN 网络，都是卷积层 + 池化层。这里是将卷积层换成了双向 RNN，所以结果是，两向 RNN + 池化层。
 ## 3.2 参考文献
 [1][Recurrent Convolutional Neural Networks for Text Classification](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9745/9552)<br/>

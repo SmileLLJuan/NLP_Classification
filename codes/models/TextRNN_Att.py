@@ -7,8 +7,8 @@ from codes.utils.Model_Config import Model_Config
 class Config(Model_Config):
 
     """配置参数"""
-    def __init__(self, dataset, embedding,**kwargs):
-        super(Config, self).__init__(dataset,embedding,**kwargs)
+    def __init__(self, dataset, from_, type_, **kwargs):
+        super(Config, self).__init__(dataset, from_, type_, **kwargs)
         self.model_name = 'TextRNN_Att'
         self.hidden_size = 128                                          # lstm隐藏层
         self.num_layers = 2                                             # lstm层数
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     from codes.utils.data_loader import build_dataset, build_iterator
     from codes.train_eval import train
 
-    config = Config(dataset="THUCNews", embedding="embedding_SougouNews.npz", num_epochs=10,device='cuda')
+    config = Config(dataset="THUCNews", from_="from_pretrained_embedding", type_="char", num_epochs=10,device='cuda')
     print(config.embedding_pretrained.shape,config.embedding_pretrained.device)
     vocab, train_data, dev_data, test_data = build_dataset(config, ues_word=False)
     train_iter = build_iterator(train_data, config)
